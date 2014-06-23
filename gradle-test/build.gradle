@@ -1,0 +1,56 @@
+task hello {
+  doLast {
+    println 'hello'
+  }
+}
+
+task hello2 << {
+  println 'hello2'
+}
+
+hello2.dependsOn(hello)
+hello2.doLast { 
+  println "It's hello2 task again"
+}
+
+task upper << {
+  String word = 'soMe_StRing'
+  println 'Original: ' + word
+  println 'Upper: ' + word.toUpperCase()
+}
+
+task upper2(dependsOn: upper) << {
+  String word = 'somE_stRinG'
+  println "Original: $word"
+  println "Upper: ${word.toUpperCase()}"
+}
+
+task count << {
+  7.times { print "${it + 1} " }
+  println ""
+}
+
+task "string" << {
+ println 'some string...'
+}
+
+5.times { counter ->
+  task "task$counter" << {
+    println "Task says: $counter"
+  }
+}
+
+task0.dependsOn task4, task1, task2
+
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.5'
+
+    testCompile "junit:junit:4.11"
+}
