@@ -1,3 +1,6 @@
+/* -----------------------------------------------
+ Defining tasks. Adding task dependencies
+----------------------------------------------- */
 task hello {
   doLast {
     println 'hello'
@@ -13,6 +16,9 @@ hello2.doLast {
   println "It's hello2 task again"
 }
 
+/* -----------------------------------------------
+ Using Groovy inside tasks.
+----------------------------------------------- */
 task upper << {
   String word = 'soMe_StRing'
   println 'Original: ' + word
@@ -31,9 +37,12 @@ task count << {
 }
 
 task "string" << {
- println 'some string...'
+  println 'some string...'
 }
 
+/* -----------------------------------------------
+ Creating tasks dynamically.
+----------------------------------------------- */
 5.times { counter ->
   task "task$counter" << {
     println "Task says: $counter"
@@ -42,7 +51,20 @@ task "string" << {
 
 task0.dependsOn task4, task1, task2
 
+/* -----------------------------------------------
+ Defining tasks properties.
+----------------------------------------------- */
+task dataTask {
+  ext.dataProperty = 'Dummy Value'
+}
 
+task printDataTask << {
+  println "Data is \"${dataTask.dataProperty}\""
+}
+
+/* -----------------------------------------------
+ Java plugin and stuff.
+----------------------------------------------- */
 apply plugin: 'java'
 
 repositories {
