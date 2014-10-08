@@ -1,3 +1,9 @@
 # gradle generated stuff
-/**/build/*
-/**/.gradle/*
+**/build/*
+**/.gradle/*
+
+# InelliJ IDEA
+**/out/*
+*.iml
+*.ipr
+*.iws
