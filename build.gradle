@@ -1,6 +1,20 @@
-apply plugin: 'idea'
+ext {
+    scalaVersion = '2.11'
+    scalaLibraryVersion = "${scalaVersion}.6"
 
-repositories {
-    mavenCentral()
+    scalaLibs = "org.scala-lang:scala-library:$scalaLibraryVersion"
+
+    loggingLibs = 'org.slf4j:slf4j-api:1.7.5'
+
+    scalaTestLibs = "org.scalatest:scalatest_$scalaVersion:2.2.1"
 }
+
+allprojects {
+    apply plugin: 'idea'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
 

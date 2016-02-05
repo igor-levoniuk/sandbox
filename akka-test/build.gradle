@@ -1,22 +1,15 @@
 apply plugin: 'scala'
-apply plugin: 'idea'
 
 ext {
-    scalaVersion = '2.10'
-    scalaLibraryVersion = "${scalaVersion}.4"
     akkaVersion = '2.3.6'
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    compile "org.scala-lang:scala-library:$scalaVersion"
+    compile scalaLibs
+    compile loggingLibs
     compile "com.typesafe.akka:akka-actor_$scalaVersion:$akkaVersion"
-    compile 'org.slf4j:slf4j-api:1.7.5'
 
-    testCompile "org.scalatest:scalatest_$scalaVersion:2.2.1"
+    testCompile scalaTestLibs
 }
 
 tasks.withType(ScalaCompile) {
