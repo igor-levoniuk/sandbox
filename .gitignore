@@ -2,7 +2,11 @@
 **/build/*
 **/.gradle/*
 
+#sbt
+**/target/*
+
 # InelliJ IDEA
+.idea
 **/out/*
 *.iml
 *.ipr
