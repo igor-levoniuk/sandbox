@@ -3,4 +3,4 @@ rootProject.name = 'sandbox'
 include 'akka-test'
 include 'scala-test'
 include 'gradle-test'
-
+include 'bitcoin-test'
